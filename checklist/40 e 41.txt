@@ -1,0 +1,4 @@
+-- da todos os priviligios para todos os usuarios e remove todos os privilegios de todos os usuarios
+GRANT ALL PRIVILEGES ON planeta TO PUBLIC;
+
+REVOKE ALL PRIVILEGES ON planeta TO PUBLIC;

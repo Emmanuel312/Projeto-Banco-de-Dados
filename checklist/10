@@ -1,0 +1,7 @@
+ALTER TABLE estrela
+ADD CONSTRAINT ck_tamanhoestrela
+CHECK (tamanhoestrela > 0);
+/
+ALTER TABLE vida
+ADD CONSTRAINT ck_vida_quantidade
+CHECK (quantidade > 0);

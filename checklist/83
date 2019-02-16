@@ -1,0 +1,8 @@
+Create or Replace trigger not_delete
+before delete on viaja
+For each row
+when (old.nomeprochoso = 'Terra')
+
+Begin
+    dbms_output.put_line('Viagem para a terra nao pode ser removida');   
+end;

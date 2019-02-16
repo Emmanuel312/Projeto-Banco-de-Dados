@@ -1,0 +1,4 @@
+-- nome das estrelas onde para todos é igual a sol
+Select e.nomeestrela
+From estrela e
+Where e.nomeestrela = all (Select p.nomeestrela From planeta p Where p.nomeestrela = 'Sol');

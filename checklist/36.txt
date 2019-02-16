@@ -1,0 +1,4 @@
+-- Todas as estrelas que não tem "Co" no nome
+SELECT p.nomeestrela FROM planeta p
+MINUS
+SELECT e.nomeestrela FROM estrela e WHERE e.nomeestrela Like '%Co%';

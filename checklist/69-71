@@ -1,0 +1,27 @@
+-- fatorial da estimativa de tempo
+Declare
+    n integer;
+    y integer;
+    z integer := 1;
+    resul integer;
+Function fact(x in integer, y out integer, z in out integer) return integer is -- tipo de retorno é um inteiro
+    r integer := 1; -- declaracao local
+    a integer;
+    Begin 
+        for a in reverse 1 .. x loop -- for(a=x;a!=0;a--)
+            r := r * a;
+        end loop;
+        y := r;
+        z := z + y;
+        return r;
+    end;
+
+Begin 
+    Select v.estimativa_tempo into n From viaja v Where v.estimativa_tempo = 5;
+    resul := fact(n,y,z);
+    dbms_output.put_line(resul);
+    dbms_output.put_line(y);
+    dbms_output.put_line(z);
+end;
+
+

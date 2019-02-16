@@ -1,0 +1,6 @@
+ -- Nome dos planetas gasosos e o codigo que possuem uma zona nao habitavel
+Select pg.nomegasoso, po.codigo_nao_habitavel
+From pgasoso pg Inner Join
+    possui po on pg.nomepgasoso = po.nomepgasoso Inner Join
+    zona_nao_habitavel z on po. codigo_nao_habitavel = z. codigo_nao_habitavel
+

@@ -1,0 +1,6 @@
+UPDATE estrela
+
+set temperaturaestrela = temperaturaestrela * 2
+
+WHERE temperaturaestrela = (select MIN(temperaturaestrela)
+from estrela);

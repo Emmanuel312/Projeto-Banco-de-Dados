@@ -1,0 +1,15 @@
+Declare
+    Cursor c_planeta is Select * From planeta;
+    reg planeta%rowtype; 
+Begin
+    open c_planeta;
+    loop
+    fetch c_planeta into reg;
+    exit when c_planeta%notfound;
+    dbms_output.put_line(reg.nomeplaneta);
+    end loop;
+    
+    close c_planeta;
+end;
+
+

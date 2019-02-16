@@ -1,0 +1,16 @@
+Declare
+    pnome estrela.nomeestrela%type := 'A';
+    aux estrela.nomeestrela%type;
+    cursor c_estrela(pnome in estrela.nomeestrela%type) is
+    select *
+    from estrela
+    where nomeestrela like pnome;
+Begin
+    open c_estrela(pnome);
+    loop 
+        fetch c_estrela into aux;
+        exit when c_estrela%notfound;    
+    end loop;
+    
+    close c_estrela;
+end;

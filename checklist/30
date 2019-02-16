@@ -1,0 +1,4 @@
+-- nome das estrelas que estao sendo orbitadas
+Select e.nomeestrela
+From estrela e
+Where e.nomeestrela =any (Select p.nomeestrela From planeta p);

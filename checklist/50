@@ -1,0 +1,12 @@
+Declare 
+    temp estrela.temperaturaestrela%type := 5778; -- declarando a var temp do msm tipo de temperaturaestrela
+
+Begin
+    if(temp = 5778) then 
+       Update estrela
+       Set temperaturaestrela = temp;
+       dbms_output.put_line('todas as temperaturas iguais');
+    else 
+        dbms_output.put_line('faz nada');
+    end if;
+end;

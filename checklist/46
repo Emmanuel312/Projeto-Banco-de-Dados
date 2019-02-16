@@ -1,0 +1,4 @@
+-- Ordena o nome das estrelas, temperatura e tamanho de forma crescente
+Select e.nomeestrela
+From estrela e
+Order by e.nomeestrela, e.temperaturaestrela, e.tamanhoestrela;

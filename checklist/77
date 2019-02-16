@@ -1,0 +1,6 @@
+-- mostra a viagem removida
+Create or Replace Trigger show_viaja 
+After Delete  on viaja
+Begin
+    dbms_output.put_line('viagem removida');
+end;

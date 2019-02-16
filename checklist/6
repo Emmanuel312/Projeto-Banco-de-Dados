@@ -1,0 +1,4 @@
+-- Especies ordenadas crescentemente pela quantidade 
+Select v.especie, v.quantidade
+From vida v
+Order by v.quantidade Asc;

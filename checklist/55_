@@ -1,0 +1,9 @@
+Declare
+    qtd integer;
+    nome estrela.nomeestrela%type := 'Sol';
+   
+Begin
+    For qtd in 0 .. 20 loop
+        dbms_output.put_line('O ' || nome || ' vai se por em ' || qtd || ' segundos');
+    end loop;
+end;

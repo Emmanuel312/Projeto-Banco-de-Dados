@@ -1,0 +1,5 @@
+-- Media das temperaturas das estrelas por tamanho maiores do q 120
+Select avg(e.temperaturaestrela) as media, e.tamanhoestrela
+From estrela e
+Group by e.tamanhoestrela
+Having avg(e.temperaturaestrela) > 120;

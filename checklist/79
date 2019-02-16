@@ -1,0 +1,7 @@
+-- mostra a estimativa do tempo da viagem removida
+Create or Replace Trigger show_viaja 
+After Delete on viaja
+for each row
+Begin
+    dbms_output.put_line('viagem removida ' || :old.estimativa_tempo);
+end;

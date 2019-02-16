@@ -1,0 +1,4 @@
+-- Q -> nome dos satelites por quantidade de composicao
+Select s.nomesatelite, count(s.composicao)
+From satelite s
+Group by s.nomesatelite;

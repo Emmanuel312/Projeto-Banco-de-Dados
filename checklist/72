@@ -1,0 +1,46 @@
+CREATE OR REPLACE PACKAGE estrela_pack AS
+  FUNCTION get_nomeEstrela(nomeestrela_in estrela.nomeestrela%type)
+    RETURN estrela.nomeestrela%type;
+  FUNCTION get_temperatura(temperaturaestrela_in estrela.temperaturaestrela%type)
+    RETURN estrela.temperaturaestrela%type;
+END estrela_pack;
+/
+/*
+  Package estrela body
+*/
+CREATE OR REPLACE PACKAGE BODY estrela_pack AS
+   FUNCTION get_nomeEstrela(nomeestrela_in estrela.nomeestrela%type) return estrela.nomeestrela%type IS
+      nome estrela.nomeestrela%type;
+      BEGIN
+        SELECT nomeestrela
+        INTO nome
+        FROM estrela
+        WHERE nomeestrela = nomeestrela_in;
+      
+        RETURN nome;
+  
+      EXCEPTION
+      WHEN NO_DATA_FOUND THEN
+        RETURN NULL;
+      WHEN TOO_MANY_ROWS THEN
+        RETURN NULL;
+  END;
+  
+  FUNCTION get_temperatura(temperaturaestrela_in estrela.temperaturaestrela%type) RETURN  estrela.temperaturaestrela%type IS
+    temp  estrela.temperaturaestrela%type;
+      BEGIN
+        SELECT temperaturaestrela
+        INTO temp
+        FROM estrela
+        WHERE temperaturaestrela = temperaturaestrela_in;
+      
+        RETURN temp;
+      
+        EXCEPTION
+          WHEN NO_DATA_FOUND THEN
+            RETURN NULL;
+          WHEN TOO_MANY_ROWS THEN
+            RETURN NULL;
+      END;
+
+END estrela_pack;

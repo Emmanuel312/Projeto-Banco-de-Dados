@@ -1,0 +1,5 @@
+-- Nome dos planetas que orbitam o Sol com sub pesquisa no from 
+
+Select nomeplaneta
+
+From (Select nomeplaneta From planeta Where nomeestrela = 'Sol');

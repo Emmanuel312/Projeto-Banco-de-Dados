@@ -1,0 +1,130 @@
+﻿DROP TABLE viaja;
+DROP TABLE nave;
+DROP TABLE possui;
+DROP TABLE galaxia;
+DROP TABLE zona_nao_habitavel;
+DROP TABLE tipo_de_rocha;
+DROP TABLE prochoso;
+DROP TABLE pgasoso;
+DROP TABLE civilizacao;
+DROP TABLE vida;
+DROP TABLE satelite;
+DROP TABLE planeta;
+DROP TABLE atmosfera;
+DROP TABLE estrela;
+
+CREATE TABLE estrela (
+  nomeestrela VARCHAR2(20),
+  temperaturaestrela DECIMAL(8,2),
+  tamanhoestrela DECIMAL(8,2),
+  CONSTRAINT estrela_pk PRIMARY KEY (nomeestrela)
+);
+
+CREATE TABLE atmosfera (
+  codigoatmosfera NUMBER,
+  pressao DECIMAL(8,2),
+  profundidade DECIMAL(8,2),
+  CONSTRAINT atmosfera_pk PRIMARY KEY (codigoatmosfera)
+);
+
+CREATE TABLE planeta (
+  nomeplaneta VARCHAR2(20),
+  data_de_desc DATE,
+  colide VARCHAR2(15),
+  nomeestrela VARCHAR2(20) NOT NULL,
+  codigoatmosfera NUMBER,
+  temperaturaplaneta DECIMAL(8,2),
+  CONSTRAINT planeta_pk PRIMARY KEY (nomeplaneta),
+  CONSTRAINT planeta_fk FOREIGN KEY (colide) REFERENCES planeta (nomeplaneta),
+  CONSTRAINT planeta_estrela_fk FOREIGN KEY (nomeestrela) REFERENCES estrela (nomeestrela),
+  CONSTRAINT planeta_atmosfera_fk FOREIGN KEY (codigoatmosfera) REFERENCES atmosfera (codigoatmosfera)
+);
+
+CREATE TABLE satelite (
+  nomesatelite VARCHAR2(20),
+  tamanhosatelite DECIMAL(8,2),
+  composicao VARCHAR2(200),
+  nomeplaneta VARCHAR2(20) NOT NULL,
+  CONSTRAINT satelite_pk PRIMARY KEY (nomesatelite),
+  CONSTRAINT satelite_planeta_fk FOREIGN KEY (nomeplaneta) REFERENCES planeta (nomeplaneta)
+);
+
+CREATE TABLE vida (
+  especie VARCHAR2(20),
+  desenvolvimento VARCHAR2(200),
+  quantidade NUMBER,
+  codigoatmosfera NUMBER,
+  CONSTRAINT vida_pk PRIMARY KEY (especie),
+  CONSTRAINT vida_atmosfera_fk FOREIGN KEY (codigoatmosfera) REFERENCES atmosfera (codigoatmosfera)
+);
+
+CREATE TABLE civilizacao (
+  nomecivilizacao VARCHAR2(20),
+  especie VARCHAR2(20),
+  duracao NUMBER,
+  lugarcivilizacao VARCHAR2(20),
+  CONSTRAINT civilizacao_pk PRIMARY KEY (nomecivilizacao, especie),
+  CONSTRAINT civilizacao_vida_fk FOREIGN KEY (especie) REFERENCES vida (especie)
+);
+
+CREATE TABLE pgasoso (
+  nomepgasoso VARCHAR(20),
+  CONSTRAINT pgasoso_pk PRIMARY KEY (nomepgasoso),
+  CONSTRAINT pgasoso_planeta_fk FOREIGN KEY (nomepgasoso) REFERENCES planeta (nomeplaneta)
+);
+
+CREATE TABLE prochoso (
+  nomeprochoso VARCHAR(20),
+  CONSTRAINT prochoso_pk PRIMARY KEY (nomeprochoso),
+  CONSTRAINT prochoso_planeta_fk FOREIGN KEY (nomeprochoso) REFERENCES planeta (nomeplaneta)
+);
+
+CREATE TABLE tipo_de_rocha (
+  nomeprochoso VARCHAR2(20),
+  rocha VARCHAR2(20),
+  CONSTRAINT tipo_de_rochas_pk PRIMARY KEY (nomeprochoso, rocha),
+  CONSTRAINT tipo_rochas_planeta_fk FOREIGN KEY (nomeprochoso) REFERENCES prochoso (nomeprochoso)
+);
+
+CREATE TABLE zona_nao_habitavel (
+  codigo_nao_habitavel NUMBER,
+  lugar_nao_habitavel VARCHAR(20),
+  distancia DECIMAL(8,2),
+  CONSTRAINT zona_nao_habitavel_pk PRIMARY KEY (codigo_nao_habitavel)
+);
+
+CREATE TABLE galaxia (
+  nomegalaxia VARCHAR(20),
+  tamanhogalaxia DECIMAL(8,2),
+  formatogalaxia VARCHAR2(20),
+  CONSTRAINT galaxia_pk PRIMARY KEY (nomegalaxia)
+);
+
+CREATE TABLE possui (
+  nomepgasoso VARCHAR(20),
+  nomegalaxia VARCHAR(20),
+  codigo_nao_habitavel NUMBER,
+  CONSTRAINT possui_pk PRIMARY KEY (nomepgasoso, nomegalaxia, codigo_nao_habitavel),
+  CONSTRAINT possui_pgasoso_fk FOREIGN KEY (nomepgasoso) REFERENCES pgasoso (nomepgasoso),
+  CONSTRAINT possui_galaxia_fk FOREIGN KEY (nomegalaxia) REFERENCES galaxia (nomegalaxia),
+  CONSTRAINT possui_zona_nao_habitavel_fk FOREIGN KEY (codigo_nao_habitavel) REFERENCES zona_nao_habitavel (codigo_nao_habitavel)
+);
+
+CREATE TABLE nave (
+  numeroserie NUMBER,
+  modelo VARCHAR(20),
+  formatonave VARCHAR2(20),
+  piloto VARCHAR2(20),
+  copiloto VARCHAR2(20),
+  tripulantes VARCHAR2(20),
+  CONSTRAINT nave_pk PRIMARY KEY (numeroserie)
+);
+
+CREATE TABLE viaja (
+  numeroserie NUMBER,
+  nomeprochoso VARCHAR2(20),
+  estimativa_tempo NUMBER,
+  CONSTRAINT viaja_pk PRIMARY KEY (numeroserie, nomeprochoso, estimativa_tempo),
+  CONSTRAINT viaja_nave_fk FOREIGN KEY (numeroserie) REFERENCES nave (numeroserie),
+  CONSTRAINT possui_prochoso_fk FOREIGN KEY (nomeprochoso) REFERENCES prochoso (nomeprochoso)
+);

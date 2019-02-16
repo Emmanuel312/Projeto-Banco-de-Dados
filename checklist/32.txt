@@ -1,0 +1,7 @@
+-- projeta os planetas que são gasosos
+
+Select p.nomeplaneta from planeta p 
+
+where exists ( select * from pgasoso g 
+                    
+		where p.nomeplaneta = g.nomepgasoso);

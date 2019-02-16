@@ -1,0 +1,5 @@
+-- Media das temperaturas das estrelas por tamanho que onde elas sejam iguais as temperaturas dos planetas (com temperaturas maiores que 120)
+Select avg(e.temperaturaestrela) as media, e.tamanhoestrela
+From estrela e
+Group by e.tamanhoestrela
+Having avg(e.temperaturaestrela) in (Select p.temperaturaplaneta From planeta p Where p.temperaturaplaneta > 120);

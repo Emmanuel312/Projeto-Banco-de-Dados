@@ -1,0 +1,4 @@
+﻿--Estrelas que tambem são satelites
+SELECT e.nomeestrela FROM estrela e
+INTERSECT
+SELECT s.nomesatelite FROM satelite s;

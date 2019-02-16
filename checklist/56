@@ -1,0 +1,7 @@
+Declare
+    nome estrela.nomeestrela%type;
+Begin
+    Select nomeestrela into nome
+    From estrela
+    Where nomeestrela = 'Sol';
+end;

@@ -1,0 +1,4 @@
+-- Projetar nomes de todos os planetas gasosos e rochosos
+SELECT g.nomepgasoso FROM pgasoso g
+UNION
+SELECT r.nomeprochoso FROM prochoso r;

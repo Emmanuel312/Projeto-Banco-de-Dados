@@ -1,0 +1,12 @@
+Create or Replace Trigger tmp_dif
+After Update on estrela
+for each row 
+
+Declare
+    dif estrela.temperaturaestrela%type;
+Begin
+    dif := :new.temperaturaestrela - :old.temperaturaestrela ;
+    dbms_output.put_line('Temperatura Antiga ' || :old.temperaturaestrela);
+    dbms_output.put_line('Temperatura Nova ' || :new.temperaturaestrela);
+    dbms_output.put_line('Diferença de Temperatura ' ||  dif);
+end;

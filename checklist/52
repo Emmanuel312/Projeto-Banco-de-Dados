@@ -1,0 +1,10 @@
+Declare
+    qtd vida.quantidade%type;
+Begin
+    qtd := 2; 
+    Case qtd
+    when 1 then dbms_output.put_line('Quantidade 1 de vida');
+    when 2 then dbms_output.put_line('Quantidade 2 de vida');
+    else dbms_output.put_line('Irineu');-- default
+    end case;
+end;

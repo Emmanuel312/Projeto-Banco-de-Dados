@@ -1,0 +1,13 @@
+-- impedindo insercao de data de descoberta em planeta antes de 1781 (primeiro planeta descoberto) 
+-- trigger de linha, momento = antes de um insert
+
+Create or Replace Trigger except_date
+Before Insert on planeta
+For each row
+
+When (extract(year from new.data_de_desc) < 1781 or extract(year from new.data_de_desc) > 2018)
+
+Begin
+    dbms_output.put_line('A data inserida não é valida');
+end;
+

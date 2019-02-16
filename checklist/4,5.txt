@@ -1,0 +1,5 @@
+-- Q - nome das estrelas que tem algum planeta orbitando e tem temperatura
+Select e.nomeestrela
+From estrela e
+Where e.nomeestrela in (Select p.nomeestrela From planeta p Where e.nomeestrela = p.nomeestrela) and
+	e.temperaturaestrela is not null;

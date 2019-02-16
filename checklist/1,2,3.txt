@@ -1,0 +1,5 @@
+Select p.nomeplaneta 
+From planeta p 
+Where (p.codigoatmosfera Between 1 and 10) and 
+	  (Extract(Year From p.data_de_desc) Between 2001 and 2015) and
+      (p.nomeplaneta Like '%Pl%');  

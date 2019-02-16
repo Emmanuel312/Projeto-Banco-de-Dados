@@ -1,0 +1,14 @@
+Declare 
+    qnt Integer := 2;
+    
+Begin
+    loop
+        dbms_output.put_line('Roda a roda ' || qnt);
+        Update civilizacao
+        set duracao = 1;
+        if qnt = 0 then
+            exit;
+        end if;
+        qnt := qnt - 1;
+    end loop;
+end;

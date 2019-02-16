@@ -1,0 +1,4 @@
+-- Nome dos planetas que orbitam estrela
+Select p.nomeplaneta
+From estrela e, planeta p
+Where e.nomeestrela = p.nomeestrela;

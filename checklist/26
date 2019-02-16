@@ -1,0 +1,4 @@
+-- nome dos planetas e os seus respectivos codigos das atmosferas 
+Select p.nomeplaneta, a.codigoatmosfera
+From planeta p Inner Join  
+    atmosfera a on p.codigoatmosfera = a.codigoatmosfera;

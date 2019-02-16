@@ -1,0 +1,4 @@
+Select *
+From possui po, galaxia g, zona_nao_habitavel z
+Where (po.nomegalaxia = g.nomegalaxia) and (po.codigo_nao_habitavel = z.codigo_nao_habitavel)
+

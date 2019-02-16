@@ -1,0 +1,5 @@
+-- Diferenca da soma das temperaturas entre a media das temperaturas
+
+Select (sum(e.temperaturaestrela) - avg(e.temperaturaestrela)) as qtd
+
+From estrela e;

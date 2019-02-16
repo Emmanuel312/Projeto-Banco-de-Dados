@@ -1,0 +1,135 @@
+-- inserindo Estrelas (3 no total) 
+INSERT INTO estrela (nomeestrela, temperaturaestrela, tamanhoestrela) VALUES ('Sol', 5778, 695508);
+INSERT INTO estrela (nomeestrela, temperaturaestrela, tamanhoestrela) VALUES ('Coruscant Prime', 2896, 173877);
+INSERT INTO estrela (nomeestrela, temperaturaestrela, tamanhoestrela) VALUES ('Altair', 8600, 926617);
+
+--  inserindo Atmosferas (10 no total) 
+INSERT INTO atmosfera (codigoatmosfera, pressao, profundidade) VALUES (01, 101.32, 800);
+INSERT INTO atmosfera (codigoatmosfera, pressao, profundidade) VALUES (02, 1.2, 4000);
+INSERT INTO atmosfera (codigoatmosfera, pressao, profundidade) VALUES (03, 101.48, 809);
+INSERT INTO atmosfera (codigoatmosfera, pressao, profundidade) VALUES (04, 0.1, 117);
+INSERT INTO atmosfera (codigoatmosfera, pressao, profundidade) VALUES (05,  0.2, 126);
+INSERT INTO atmosfera (codigoatmosfera, pressao, profundidade) VALUES (06, 131.54, 793);
+INSERT INTO atmosfera (codigoatmosfera, pressao, profundidade) VALUES (07, 98.95, 831);
+INSERT INTO atmosfera (codigoatmosfera, pressao, profundidade) VALUES (08, 100, 5000);
+INSERT INTO atmosfera (codigoatmosfera, pressao, profundidade) VALUES (09, 140, 1270);
+INSERT INTO atmosfera (codigoatmosfera, pressao, profundidade) VALUES (10, 98.95, 831);
+
+-- inserindo Planetas (10 no total) 
+INSERT INTO planeta (nomeplaneta, data_de_desc, colide, nomeestrela, codigoatmosfera, temperaturaplaneta) VALUES ('Terra', NULL, NULL, 'Sol', 01, 287.15);
+INSERT INTO planeta (nomeplaneta, data_de_desc, colide, nomeestrela, codigoatmosfera, temperaturaplaneta) VALUES ('Urano', to_date ('13/03/1781', 'dd/mm/yyyy'), NULL, 'Sol', 02, 53);
+INSERT INTO planeta (nomeplaneta, data_de_desc, colide, nomeestrela, codigoatmosfera, temperaturaplaneta) VALUES ('Coruscant', NULL, NULL, 'Coruscant Prime', 03, 329.17);
+INSERT INTO planeta (nomeplaneta, data_de_desc, colide, nomeestrela, codigoatmosfera, temperaturaplaneta) VALUES ('Haumea', to_date ('06/05/2004', 'dd/mm/yyyy'), NULL, 'Altair', 04, 50);
+INSERT INTO planeta (nomeplaneta, data_de_desc, colide, nomeestrela, codigoatmosfera, temperaturaplaneta) VALUES ('Eris', to_date ('21/10/2003', 'dd/mm/yyyy'), 'Haumea', 'Altair', 05, 30);
+INSERT INTO planeta (nomeplaneta, data_de_desc, colide, nomeestrela, codigoatmosfera, temperaturaplaneta) VALUES ('Kashyyyk', NULL, NULL, 'Coruscant Prime', 06, 300.02);
+INSERT INTO planeta (nomeplaneta, data_de_desc, colide, nomeestrela, codigoatmosfera, temperaturaplaneta) VALUES ('Naboo', NULL, 'Kashyyyk', 'Coruscant Prime', 07, 254.88);
+INSERT INTO planeta (nomeplaneta, data_de_desc, colide, nomeestrela, codigoatmosfera, temperaturaplaneta) VALUES ('Jupiter', to_date ('07/01/1610', 'dd/mm/yyyy'), NULL, 'Sol', 08, 163.15);
+INSERT INTO planeta (nomeplaneta, data_de_desc, colide, nomeestrela, codigoatmosfera, temperaturaplaneta) VALUES ('Saturno', to_date ('07/01/1610', 'dd/mm/yyyy'), NULL, 'Sol', 09, 134.15);
+INSERT INTO planeta (nomeplaneta, data_de_desc, colide, nomeestrela, codigoatmosfera, temperaturaplaneta) VALUES ('Tatooine', to_date ('23/09/1846', 'dd/mm/yyyy'), NULL, 'Coruscant Prime', 10, 58);
+
+-- inserindo Satélites (14 no total) 
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Lua', 1737, 'Ferro, aluminio, magnesio e silicio', 'Terra');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Miranda', 235.5, NULL, 'Urano');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Titania', 789, 'Gelo e rochas', 'Urano');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Umbriel', 585, 'Gelo com uma fracao significativa de rocha', 'Urano');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Hiiaka', 175, 'Destrocos de Haumea', 'Haumea');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Namaka', 85, 'Destrocos de Haumea', 'Haumea');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Disnomia', 580, NULL, 'Eris');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Ohma-Dunc', 2103, 'Agua', 'Naboo');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Rori', 1497, 'Pantano', 'Naboo');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Tasia', 264, 'Gelo e neve', 'Naboo');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Farming Moon 1', 1656, 'Terra verde', 'Kashyyyk');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Farming Moon 2', 1334, 'Terra verde', 'Kashyyyk');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Centax-1', 1271, 'Rochas', 'Coruscant');
+INSERT INTO satelite (nomesatelite, tamanhosatelite, composicao, nomeplaneta) VALUES ('Centax-2', 985, 'Rochas', 'Coruscant');
+
+-- inserindo Vida (6 no total) 
+INSERT INTO vida (especie, desenvolvimento, quantidade, codigoatmosfera) VALUES ('Humano', 'Evolucao do Homo Sapiens', 6000000000, 01);
+INSERT INTO vida (especie, desenvolvimento, quantidade, codigoatmosfera) VALUES ('Jedi', 'Humanos', 10000, 03);
+INSERT INTO vida (especie, desenvolvimento, quantidade, codigoatmosfera) VALUES ('Wookie', 'Descendentes de mamiferos herbivoros', 56000000, 06);
+INSERT INTO vida (especie, desenvolvimento, quantidade, codigoatmosfera) VALUES ('Bothan', 'Descendentes de mamiferos peludos', 20000000, 06);
+INSERT INTO vida (especie, desenvolvimento, quantidade, codigoatmosfera) VALUES ('Gungan', 'Anfibios', 600000000, 07);
+INSERT INTO vida (especie, desenvolvimento, quantidade, codigoatmosfera) VALUES ('Sith', 'Humanos', 11000, 03);
+
+-- inserindo Civilização (13 no total) 
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('Maia', 'Humano', 900, 'Mexico');
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('Egipcia', 'Humano', 3500, 'Egito');
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('Inca', 'Humano', 700, 'Peru');
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('Ilya', 'Bothan', 800, 'Kothlis');
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('Askar', 'Bothan', NULL, 'Dressel');
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('Jedi Order', 'Jedi', 2500, 'Templo Jedi');
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('Jedi Crusader', 'Jedi', 2500, 'Templo Jedi');
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('Jedi Pilgrims', 'Jedi', 2000, 'Lothal');
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('Sith Lord', 'Sith', 1000, 'Templo Sith');
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('Sith Master', 'Sith', 1000, 'Templo Sith');
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('Sith Apprentice', 'Sith', 1000, 'Korriban');
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('Chieftain', 'Wookie', NULL, 'Floresta');
+INSERT INTO civilizacao (nomecivilizacao, especie, duracao, lugarcivilizacao) VALUES ('High Council', 'Gungan', NULL, 'Underwater City');
+
+-- inserindo Pgasosos (4 no total) 
+INSERT INTO pgasoso (nomepgasoso) VALUES ('Urano');
+INSERT INTO pgasoso (nomepgasoso) VALUES ('Jupiter');
+INSERT INTO pgasoso (nomepgasoso) VALUES ('Saturno');
+INSERT INTO pgasoso (nomepgasoso) VALUES ('Tatooine');
+
+-- inserindo Prochoso (6 no total) 
+INSERT INTO prochoso (nomeprochoso) VALUES ('Terra');
+INSERT INTO prochoso (nomeprochoso) VALUES ('Haumea');
+INSERT INTO prochoso (nomeprochoso) VALUES ('Eris');
+INSERT INTO prochoso (nomeprochoso) VALUES ('Coruscant');
+INSERT INTO prochoso (nomeprochoso) VALUES ('Kashyyyk');
+INSERT INTO prochoso (nomeprochoso) VALUES ('Naboo');
+
+-- inserindo Tipo de rochas (10 no total) 
+INSERT INTO tipo_de_rocha (nomeprochoso, rocha) VALUES ('Terra', 'ignea');
+INSERT INTO tipo_de_rocha (nomeprochoso, rocha) VALUES ('Terra', 'sedimentar');
+INSERT INTO tipo_de_rocha (nomeprochoso, rocha) VALUES ('Terra', 'metamorfica');
+INSERT INTO tipo_de_rocha (nomeprochoso, rocha) VALUES ('Haumea', 'sedimentar');
+INSERT INTO tipo_de_rocha (nomeprochoso, rocha) VALUES ('Haumea', 'ignea');
+INSERT INTO tipo_de_rocha (nomeprochoso, rocha) VALUES ('Eris', 'sedimentar');
+INSERT INTO tipo_de_rocha (nomeprochoso, rocha) VALUES ('Coruscant', 'ignea');
+INSERT INTO tipo_de_rocha (nomeprochoso, rocha) VALUES ('Coruscant', 'sedimentar');
+INSERT INTO tipo_de_rocha (nomeprochoso, rocha) VALUES ('Kashyyyk', 'metamorfica');
+INSERT INTO tipo_de_rocha (nomeprochoso, rocha) VALUES ('Naboo', 'metamorfica');
+
+-- inserindo Zona nao habitavel (4 no total) 
+INSERT INTO zona_nao_habitavel (codigo_nao_habitavel, lugar_nao_habitavel, distancia) VALUES ('01', 'Helheim', 2956);
+INSERT INTO zona_nao_habitavel (codigo_nao_habitavel, lugar_nao_habitavel, distancia) VALUES ('02', 'Muspelheim', 16318);
+INSERT INTO zona_nao_habitavel (codigo_nao_habitavel, lugar_nao_habitavel, distancia) VALUES ('03', 'Niflheim', 9320);
+INSERT INTO zona_nao_habitavel (codigo_nao_habitavel, lugar_nao_habitavel, distancia) VALUES ('04', 'Alfheim', 430);
+
+
+-- inserindo Galaxia (9 no total) 
+INSERT INTO galaxia (nomegalaxia, tamanhogalaxia, formatogalaxia) VALUES ('Via lactea', 50000, 'espiral');
+INSERT INTO galaxia (nomegalaxia, tamanhogalaxia, formatogalaxia) VALUES ('Andromeda', 110000, 'espiral');
+INSERT INTO galaxia (nomegalaxia, tamanhogalaxia, formatogalaxia) VALUES ('Messier82', NULL, 'irregular');
+INSERT INTO galaxia (nomegalaxia, tamanhogalaxia, formatogalaxia) VALUES ('Objeto de Hoag', 60000, 'anel');
+INSERT INTO galaxia (nomegalaxia, tamanhogalaxia, formatogalaxia) VALUES ('Cartwheel', 75000, 'roda de carro');
+INSERT INTO galaxia (nomegalaxia, tamanhogalaxia, formatogalaxia) VALUES ('Olho negro', 43000, 'espiral');
+INSERT INTO galaxia (nomegalaxia, tamanhogalaxia, formatogalaxia) VALUES ('LMC', 7000, 'irregular');
+INSERT INTO galaxia (nomegalaxia, tamanhogalaxia, formatogalaxia) VALUES ('Girassol', 32500, 'espiral');
+INSERT INTO galaxia (nomegalaxia, tamanhogalaxia, formatogalaxia) VALUES ('Redemoinho', 43000, 'espiral');
+
+-- inserindo Possui (4 no total) 
+INSERT INTO possui (nomepgasoso, nomegalaxia, codigo_nao_habitavel) VALUES ('Urano', 'Via lactea', '01');
+INSERT INTO possui (nomepgasoso, nomegalaxia, codigo_nao_habitavel) VALUES ('Jupiter', 'Via lactea', '02');
+INSERT INTO possui (nomepgasoso, nomegalaxia, codigo_nao_habitavel) VALUES ('Saturno', 'Via lactea', '03');
+INSERT INTO possui (nomepgasoso, nomegalaxia, codigo_nao_habitavel) VALUES ('Tatooine', 'Andromeda', '04');
+
+-- inserindo Naves (3 no total) 
+INSERT INTO nave (numeroserie, modelo, formatonave, piloto, copiloto, tripulantes) VALUES (748291, 'Millenium Falcon','redondo', 'Han solo', 'Chewbacca', 'Rey');
+INSERT INTO nave (numeroserie, modelo, formatonave, piloto, copiloto, tripulantes) VALUES (532467, 'Slave I', 'Boba Fett','pontudo', 'Jango Fett', 'Aurra Sing');
+INSERT INTO nave (numeroserie, modelo, formatonave, piloto, copiloto, tripulantes) VALUES (454216, 'T70', 'Poe Dameron','pontudo', 'Lonno Desu', 'Finn');
+
+-- inserindo Viagens (11 no total) 
+INSERT INTO viaja (numeroserie, nomeprochoso, estimativa_tempo) VALUES (748291, 'Terra', '2');
+INSERT INTO viaja (numeroserie, nomeprochoso, estimativa_tempo) VALUES (454216, 'Haumea', '1');
+INSERT INTO viaja (numeroserie, nomeprochoso, estimativa_tempo) VALUES (454216, 'Eris', '1');
+INSERT INTO viaja (numeroserie, nomeprochoso, estimativa_tempo) VALUES (532467, 'Terra', '4');
+INSERT INTO viaja (numeroserie, nomeprochoso, estimativa_tempo) VALUES (748291, 'Coruscant', '10');
+INSERT INTO viaja (numeroserie, nomeprochoso, estimativa_tempo) VALUES (748291, 'Kashyyyk', '5');
+INSERT INTO viaja (numeroserie, nomeprochoso, estimativa_tempo) VALUES (748291, 'Naboo', '3');
+INSERT INTO viaja (numeroserie, nomeprochoso, estimativa_tempo) VALUES (532467, 'Coruscant', '10');
+INSERT INTO viaja (numeroserie, nomeprochoso, estimativa_tempo) VALUES (454216, 'Coruscant', '6');
+INSERT INTO viaja (numeroserie, nomeprochoso, estimativa_tempo) VALUES (454216, 'Kashyyyk', '8');
+INSERT INTO viaja (numeroserie, nomeprochoso, estimativa_tempo) VALUES (532467, 'Naboo', '2');
